@@ -10,8 +10,8 @@ const initialState: InitialStateType = {
   selectedSport: null,
 };
 
-export const filterSlice = createSlice({
-  name: "filter",
+export const filtersSlice = createSlice({
+  name: "filters",
   initialState,
   reducers: {
     setSearchTerm(state, action) {
@@ -23,6 +23,6 @@ export const filterSlice = createSlice({
   },
 });
 
-export const { setSearchTerm, setSelectedSport } = filterSlice.actions;
+export const { setSearchTerm, setSelectedSport } = filtersSlice.actions;
 
-export default filterSlice.reducer;
+export default filtersSlice.reducer;

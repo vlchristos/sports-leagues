@@ -2,8 +2,8 @@ import type { Action, ThunkAction } from "@reduxjs/toolkit";
 import { combineSlices, configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { leaguesApi } from "../services/api";
-import { filterSlice } from "./filterSlice";
-const rootReducer = combineSlices(leaguesApi, filterSlice);
+import { filtersSlice } from "./filtersSlice";
+const rootReducer = combineSlices(leaguesApi, filtersSlice);
 export type RootState = ReturnType<typeof rootReducer>;
 
 export const makeStore = (preloadedState?: Partial<RootState>) => {
