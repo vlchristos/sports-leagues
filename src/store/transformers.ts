@@ -1,6 +1,6 @@
-import type { LeagauesApiResponse } from "../../types/League";
+import type { LeagauesData } from "../../types/League";
 
-export function transformLeagueData(response: LeagauesApiResponse) {
+export function transformLeagueData(response: LeagauesData) {
   const allSports = [
     response.leagues.map((league) => ({
       value: league.strSport.toLowerCase().replace(/\s+/g, "-"),
