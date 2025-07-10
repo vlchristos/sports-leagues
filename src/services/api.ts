@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import type { LeaguesApiResponse } from "../../types/League.d.ts";
+import { transformLeagueData } from "../store/transformers.ts";
+import type { LeagauesData } from "../../types/League";
 
 export const leaguesApi = createApi({
   baseQuery: fetchBaseQuery({
@@ -8,16 +9,10 @@ export const leaguesApi = createApi({
   reducerPath: "leaguesApi",
   tagTypes: ["Leagues", "Badge"],
   endpoints: (build) => ({
-    getLeagues: build.query<LeaguesApiResponse, void>({
+    getLeagues: build.query<LeagauesData, void>({
       query: () => "/all_leagues.php",
-      transformResponse: (response: LeaguesApiResponse) => {
-        const sports = [
-          ...new Set(response.leagues.map((league) => league.strSport)),
-        ];
-        return {
-          leagues: response.leagues,
-          sports,
-        };
+      transformResponse: (response: LeagauesData) => {
+        return transformLeagueData(response);
       },
     }),
     getBadgeById: build.query<string, string>({
