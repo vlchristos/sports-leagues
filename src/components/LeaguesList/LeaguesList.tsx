@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
-import { useGetLeaguesQuery } from "../services/api";
-import type { RootState } from "../store/store";
 import Fuse from "fuse.js";
-import type { League } from "../../types/League";
+import { useGetLeaguesQuery } from "../../services/api";
+import type { RootState } from "../../store/store";
+import type { League } from "../../../types/League";
 
 export default function LeaguesList() {
   const { data, error, isLoading } = useGetLeaguesQuery();

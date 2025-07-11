@@ -3,7 +3,8 @@ import { combineSlices, configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { leaguesApi } from "../services/api";
 import { filtersSlice } from "./filtersSlice";
-const rootReducer = combineSlices(leaguesApi, filtersSlice);
+import { badgesSlice } from "./badgeSlice";
+const rootReducer = combineSlices(leaguesApi, filtersSlice, badgesSlice);
 export type RootState = ReturnType<typeof rootReducer>;
 
 export const makeStore = (preloadedState?: Partial<RootState>) => {
