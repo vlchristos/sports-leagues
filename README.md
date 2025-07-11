@@ -2,14 +2,18 @@
 
 Run locally in development mode
 
-> npm install
-> npm run dev
+```bash
+npm install
+npm run dev
+```
 
 Build & run locally
 
-> npm install
-> npm run build
-> npm run preview
+```bash
+ npm install
+ npm run build
+ npm run preview
+```
 
 Main tools and frameworks used:
 
