@@ -1,69 +1,44 @@
-# React + TypeScript + Vite
+# Sporty assignment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Run locally in development mode
 
-Currently, two official plugins are available:
+> npm install
+> npm run dev
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Build & run locally
 
-## Expanding the ESLint configuration
+> npm install
+> npm run build
+> npm run preview
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Main tools and frameworks used:
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- React
+- Redux toolkit
+- Tailwind
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+I know for a fact that the design is uninspiring to say the least, but since the time was limited and there were no clear objectives about the design, this is the simplest ui that I came up with that plays nicely both for mobile and larger screens without being time consuming to create.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Redux is completely overkill for this project and I know it.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+This could be a project with simple fetch requests and saving data on localstorage for “caching” or even Context for sharing data.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Usually I am working with Redux/Axios/Redux Saga for larger projects to do data fetching/manipulation/storing.
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+It was the word ‘caching’ I noticed in the assignment that sparked the idea of trying RTK Query for the first time, as caching is one of the benefits out of the box.
+
+So, while I understand this is completely overkill, it was a nice opportunity for me to do something out of my comfort zone and not use Sagas and Axios.
+
+If time was not a factor I would also try to handle the accessibility issues better (although Lighthouse score is not bad at all at 90%). Also I would have written some tests, especially regarding data integrity but also for components consistency.
+
+Lastly I know I would have done a couple of things differently if it were for a production app like hiding the redux dev tools for production and probably put the api base url in an .env environment for better portability between local/dev/production environments and things like that. I didn’t do any of that just because I didn’t think that they do matter for the assignment, I’m just bringing those things up for clarity.
+
+This is a rough breakdown of the time I spent in each task
+
+- Read and understand the assignment & the api docs – 10 mins
+- Redux setup – 20 mins
+- Api & store setup – 40 mins
+- Rendering list & Modal – 20 mins
+- Filter & search – 20 mins
+
+All in all this took me probably a bit more than 100 minutes but it was my first time using RTK Query.
